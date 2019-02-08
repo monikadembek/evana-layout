@@ -1,0 +1,23 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+  font-size: 62.6%;
+  //this defines what 1rem is
+  /* 1rem = 10px;   10px / 16px = 62,5%
+  chcemy ustawic 10px jako wielkosc fonta, podzielone przez 16px - wartosc domyslna fonta
+  */
+}
+
+body {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
