@@ -4,31 +4,121 @@
 	background: url('../img/header.jpg') no-repeat center center;
 	background-size: cover;
 	margin: 0 auto;
-	padding-top: 5rem;
+	display: flex;
+	flex-direction: column;
 
 	.main-nav {
-		max-width: 117rem;
+		
+		// position: fixed;
+		// top: 0;
+		// width: 100%;
+		// left: 0;
 		margin: 0 auto;
+		padding: 5rem 3rem;
+		width: 100%;
+		max-width: $grid-width;
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 
 		&__logo {
-			font-family: 'Poppins', sans-serif;
+			font-family: $header-font;
 			font-size: 3rem;
 			font-weight: 700;
 			color: black;
+		}	
+		
+		@include responsive(tab-land) {
+			max-width: 90%;
+			padding: 3rem 2rem;
 		}
+		@include responsive(phone) {
+			max-width: 100%;
+		}	
+	}
 
-		&__button {
-			width: 2rem;
-			height: 3px;
-			background-color: black;
-			border: none;
-			
+	.header-content {
+		margin: 0 auto;
+		max-width: $grid-width;
+
+		&__slider {
+			width: 60%;
+			padding: 3rem 3rem 4rem;
+			position: relative;
+			z-index: 2;
+
+			&-subtitle {
+				@include header(3.6rem);
+				color: white;
+				text-transform: uppercase;	
+				margin-bottom: 3rem;	
+
+				@include responsive(tab-port) {
+					@include header(2.5rem)
+				}	
+			}
+
+			&-title {
+				@include header(7.2rem);
+				color: $primary-color;
+				line-height: 8rem;
+				margin-bottom: 4rem;
+
+				@include responsive(tab-port) {
+					@include header(5rem);
+					line-height: 6rem;
+					margin-bottom: 3rem;
+				}
+				@include responsive(phone) {
+					@include header(3.5rem);
+					line-height: 4.5rem;
+				}
+			}
+
+			&-text {
+				font-family: $paragraph-font;
+				font-size: 2.1rem;
+				font-weight: 300;
+				line-height: 3.5rem; 
+				margin-bottom: 6rem;
+
+				@include responsive(tab-port) {
+					font-size: 1.8rem;
+					line-height: 3rem;
+				}
+			}
+
 			&::before {
 				content: "";
+				position: absolute;
+				top: 0;
+				left: -4rem;
+				z-index: -1;
+				display: block;
+				width: 80%;
+				height: 100%;
+				border: 1rem solid white;
 			}
+
+			@include responsive(tab-land) {
+				width: 80%;
+				padding: 3rem 2rem 3rem;
+			}
+
+			@include responsive(phone) {
+				width: 90%;
+			}
+
 		}
+
+		@include responsive(tab-land) {
+			max-width: 90%;
+		}
+		@include responsive(phone) {
+			max-width: 100%;
+		}
+		
 	}
 
 }
+

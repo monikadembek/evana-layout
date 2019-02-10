@@ -1,3 +1,13 @@
+/*
+$breakpoint argument choices:
+0 - 600px:    phone
+600 - 900px:  tab-port
+900 - 1200px: tab-land
+1200 - 1800px -> desktop first approach
+1800+:        big-desktop
+
+1em = 16px;
+*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900");
 *,
 *::before,
@@ -18,27 +28,160 @@ body {
 a {
   text-decoration: none; }
 
+p {
+  font-size: 1.6rem; }
+
+.btn-nav {
+  border: 1px solid white;
+  margin: 0;
+  padding: 18px 9px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s; }
+  .btn-nav__bar {
+    display: block;
+    position: relative;
+    width: 2rem;
+    height: 3px;
+    background-color: black; }
+    .btn-nav__bar::before, .btn-nav__bar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      display: block;
+      background-color: black;
+      width: 2rem;
+      height: 3px; }
+    .btn-nav__bar::before {
+      top: -7px; }
+    .btn-nav__bar::after {
+      top: 7px; }
+  .btn-nav:hover {
+    background: white; }
+
+.btn-square {
+  position: relative;
+  font-weight: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2; }
+  .btn-square::before {
+    content: "";
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    background: white;
+    position: absolute;
+    right: -2rem;
+    bottom: -1rem;
+    z-index: -1;
+    transform: rotate(0deg);
+    transition: all 0.4s; }
+  .btn-square:hover::before {
+    transform: rotate(90deg); }
+
 .main-header {
   width: 100%;
   height: 100vh;
   background: url("../img/header.jpg") no-repeat center center;
   background-size: cover;
   margin: 0 auto;
-  padding-top: 5rem; }
+  display: flex;
+  flex-direction: column; }
   .main-header .main-nav {
-    max-width: 117rem;
     margin: 0 auto;
+    padding: 5rem 3rem;
+    width: 100%;
+    max-width: 117rem;
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    align-items: center; }
     .main-header .main-nav__logo {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       font-size: 3rem;
       font-weight: 700;
       color: black; }
-    .main-header .main-nav__button {
-      width: 2rem;
-      height: 3px;
-      background-color: black;
-      border: none; }
-      .main-header .main-nav__button::before {
-        content: ""; }
+    @media only screen and (max-width: 75em) {
+      .main-header .main-nav {
+        max-width: 90%;
+        padding: 3rem 2rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .main-header .main-nav {
+        max-width: 100%; } }
+  .main-header .header-content {
+    margin: 0 auto;
+    max-width: 117rem; }
+    .main-header .header-content__slider {
+      width: 60%;
+      padding: 3rem 3rem 4rem;
+      position: relative;
+      z-index: 2; }
+      .main-header .header-content__slider-subtitle {
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        font-size: 3.6rem;
+        color: white;
+        text-transform: uppercase;
+        margin-bottom: 3rem; }
+        @media only screen and (max-width: 56.25em) {
+          .main-header .header-content__slider-subtitle {
+            font-family: "Poppins", sans-serif;
+            font-weight: bold;
+            font-size: 2.5rem; } }
+      .main-header .header-content__slider-title {
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        font-size: 7.2rem;
+        color: #726bb1;
+        line-height: 8rem;
+        margin-bottom: 4rem; }
+        @media only screen and (max-width: 56.25em) {
+          .main-header .header-content__slider-title {
+            font-family: "Poppins", sans-serif;
+            font-weight: bold;
+            font-size: 5rem;
+            line-height: 6rem;
+            margin-bottom: 3rem; } }
+        @media only screen and (max-width: 37.5em) {
+          .main-header .header-content__slider-title {
+            font-family: "Poppins", sans-serif;
+            font-weight: bold;
+            font-size: 3.5rem;
+            line-height: 4.5rem; } }
+      .main-header .header-content__slider-text {
+        font-family: "Roboto", sans-serif;
+        font-size: 2.1rem;
+        font-weight: 300;
+        line-height: 3.5rem;
+        margin-bottom: 6rem; }
+        @media only screen and (max-width: 56.25em) {
+          .main-header .header-content__slider-text {
+            font-size: 1.8rem;
+            line-height: 3rem; } }
+      .main-header .header-content__slider::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -4rem;
+        z-index: -1;
+        display: block;
+        width: 80%;
+        height: 100%;
+        border: 1rem solid white; }
+      @media only screen and (max-width: 75em) {
+        .main-header .header-content__slider {
+          width: 80%;
+          padding: 3rem 2rem 3rem; } }
+      @media only screen and (max-width: 37.5em) {
+        .main-header .header-content__slider {
+          width: 90%; } }
+    @media only screen and (max-width: 75em) {
+      .main-header .header-content {
+        max-width: 90%; } }
+    @media only screen and (max-width: 37.5em) {
+      .main-header .header-content {
+        max-width: 100%; } }
