@@ -59,6 +59,9 @@ p {
   .btn-nav:hover {
     background: white; }
 
+.btn-nav:hover .navigation__nav-list {
+  display: flex; }
+
 .btn-square {
   position: relative;
   font-weight: "Poppins", sans-serif;
@@ -92,7 +95,7 @@ p {
   margin: 0 auto;
   display: flex;
   flex-direction: column; }
-  .main-header .main-nav {
+  .main-header .navigation .nav-bar {
     margin: 0 auto;
     padding: 5rem 3rem;
     width: 100%;
@@ -100,18 +103,36 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center; }
-    .main-header .main-nav__logo {
+    .main-header .navigation .nav-bar__logo {
       font-family: "Poppins", sans-serif;
       font-size: 3rem;
       font-weight: 700;
       color: black; }
     @media only screen and (max-width: 75em) {
-      .main-header .main-nav {
+      .main-header .navigation .nav-bar {
         max-width: 90%;
         padding: 3rem 2rem; } }
     @media only screen and (max-width: 37.5em) {
-      .main-header .main-nav {
+      .main-header .navigation .nav-bar {
         max-width: 100%; } }
+  .main-header .navigation__nav-list {
+    display: flex;
+    flex-direction: column;
+    background: #726bb1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20; }
+  .main-header .navigation__nav-link {
+    color: white;
+    font-size: 3rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    line-height: 6rem; }
+    .main-header .navigation__nav-link:hover {
+      color: rgba(255, 255, 255, 0.6); }
   .main-header .header-content {
     margin: 0 auto;
     max-width: 117rem; }
